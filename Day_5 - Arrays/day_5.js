@@ -1,3 +1,6 @@
+import {countries} from "./countries.js"
+import {webTechs_import} from "./webTechs.js"
+
 // Two ways to create an Array
 
 const arr = Array()
@@ -146,29 +149,6 @@ console.log("FullStack ",fullStack)
 // Exercise Part 1
 console.log("----- Part 1 -----")
 
-const countries = [
-    'Albania',
-    'Bolivia',
-    'Canada',
-    'Denmark',
-    'Ethiopia',
-    'Finland',
-    'Germany',
-    'Hungary',
-    'Ireland',
-    'Japan',
-    'Kenya'
-]
-
-const progLang = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'React',
-    'Redux',
-    'Node',
-    'MongoDB'
-]
 
 // 1. Declare an Empty Array
 const empty_array = new Array()
@@ -301,3 +281,334 @@ console.log("22 - ", itCompanies_8)
 let itCompanies_9 = ["Facebook", "Google", "Microsoft" ,"Apple", "IBM", "Oracle", "Amazon"]
 itCompanies_9 = []
 console.log("23 - ",itCompanies_9)
+
+// Exercise Part 2
+console.log("----- Part 2 -----")
+
+// 1. Import
+console.log("1 -",countries)
+console.log("1 - ", webTechs_import)
+
+// 2. Remove punctuations
+let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+const words = text.match(/\b\w+\b/g)
+console.log("2 - ",words)
+console.log("2 - ",words.length)
+
+// 3. Shopping Cart
+
+const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+
+let meat_index = shoppingCart.indexOf('Meat')
+
+if (meat_index === -1) {
+    shoppingCart.unshift('Meat')
+} else {
+    console.log("3- Meat is already on the list")
+}
+console.log("3 - ",shoppingCart)
+
+let sugar_index = shoppingCart.indexOf('Sugar')
+
+if (sugar_index === -1) {
+    shoppingCart.push('Sugar')
+} else {
+    console.log("3- Sugar is already on the list")
+}
+console.log("3 - ",shoppingCart)
+
+let allergic = true
+
+if (allergic) {
+    let honey_index = shoppingCart.indexOf('Honey')
+    shoppingCart.splice(honey_index,1)
+}
+console.log("3- Removed Honey ", shoppingCart)
+
+let tea_index = shoppingCart.indexOf('Tea')
+
+if (tea_index !== -1) {
+    shoppingCart[tea_index] = 'Green Tea'
+}
+
+console.log("3 - ", shoppingCart)
+
+// 4. Checking from imports
+console.log(countries)
+let ethopia_index = countries.indexOf("Ethiopia")
+if (ethopia_index === -1) {
+    countries.push('Ethiopia')
+} else {
+    console.log("ETHIOPIA")
+}
+console.log("4 - ",countries)
+
+// 5. Checking from Imports
+console.log(webTechs_import)
+let web_index = countries.indexOf("Sass")
+if (web_index === -1) {
+    webTechs_import.push('Sass')
+} else {
+    console.log("Sass is a CSS Preprocess")
+}
+console.log("5 - ",webTechs_import)
+
+// 6. Concat
+const frontEnd_2 = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+const backEnd_2 = ['Node','Express', 'MongoDB']
+
+const fullStack_2 = [frontEnd_2, backEnd_2]
+console.log("6 - ",fullStack_2)
+
+// Exercise Part 3
+console.log("----- Part 3 -----")
+
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+ages.sort()
+console.log("1- ",ages[0])
+console.log("1- ",ages[ages.length - 1])
+if ((ages.length - 1) % 2 == 0) {
+    console.log("Middle Age: ",ages[ages.length/2])
+} else {
+    let first_ages = Math.floor((ages.length - 1) / 2)
+    let second_ages = Math.round((ages.length - 1) / 2)
+
+    console.log("1 - ", ages[first_ages] + " " + ages[second_ages])
+}
+
+let total = 0
+let x = 0
+while (x < ages.length) {
+    total += ages[x]
+    x++
+}
+
+total = total / ages.length - 1
+
+console.log("1 - ",total)
+
+console.log("1 - ",ages[ages.length - 1] - ages[0])
+
+console.log("1 - ",Math.abs(ages[0] - total))
+console.log("1 - ",Math.abs(ages[ages.length - 1] - total))
+console.log("1 - ",Math.abs((ages[0] - total) - (ages[ages.length - 1] - total)))
+
+// 2.
+const countries_final = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombi',
+    'Comoros',
+    'Congo (Brazzaville)',
+    'Congo',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (Timor Timur)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia and Montenegro',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+]
+
+// console.log("2 - ", countries_final.slice(0,10))
+
+if ((countries_final.length - 1) % 2 == 0) {
+    console.log("Middle Country: ",countries_final[(countries_final.length - 1)/2])
+} else {
+    let first_country = Math.floor((countries_final.length - 1) / 2)
+    let second_country = Math.round((countries_final.length - 1) / 2)
+
+    console.log("3 - ", countries_final[first_country] + " " + countries_final[second_country])
+}
+
+if ((countries_final.length - 1) % 2 == 0) {
+    let first_section = countries_final.slice(0,((countries_final.length - 1) / 2) + 1)
+    let second_section = countries_final.slice(((countries_final.length - 1) / 2)+1)
+    let split = [[first_section], [second_section]]
+    console.log(split)
+} else {
+    let first_country = Math.floor((countries_final.length - 1) / 2)
+    let second_country = Math.round((countries_final.length - 1) / 2)
+
+    console.log("3 - ", countries_final[first_country] + " " + countries_final[second_country])
+}
