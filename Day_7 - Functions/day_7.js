@@ -169,6 +169,3 @@ const generateFullName = (first = 'Marco', last = 'Gonz') => {
 
 console.log(generateFullName())
 console.log(generateFullName('Madi','Gonz'))
-
-// Exercise Part 1
-console.log("----- Part 1 -----")
