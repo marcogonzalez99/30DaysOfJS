@@ -109,10 +109,10 @@ const square_expression = function(n) {
 console.log(square(2))
 
 // Self Invoking Function
-console.log("--- Self Invoking Function ---")
-(function(n) {
-    console.log(n * n)
-})(2)
+// console.log("--- Self Invoking Function ---")
+// (function(n) {
+//     console.log(n * n)
+// })(2)
 
 // Arrow Function
 console.log("--- Arrow Function ---")
@@ -125,7 +125,7 @@ const countries_arrow = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
 const changeToUpper = array => {
     const newArr = []
     for (const element of array) {
-        newArr,push(element.toUpperCase())
+        newArr.push(element.toUpperCase())
     }
     return newArr
 }
