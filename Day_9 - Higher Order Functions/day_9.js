@@ -1,3 +1,5 @@
+import countriesArray from '../data/countries.js'
+import countriesInfo from '../data/countries_data.js'
 const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -188,5 +190,262 @@ const totelPriceReduce = products.reduce((sum, product) => {
 console.log(totelPriceReduce)
 
 console.log("-- 3 --")
+// console.log(countriesArray)
+function categorizeCountries(countriesArray,pattern) {
+  const filteredCountries = countriesArray.filter(country => country.toLowerCase().includes(pattern.toLowerCase()))
+  return filteredCountries
+}
 
+const commonPatternCountries = categorizeCountries(countriesArray,'land')
+console.log(commonPatternCountries)
 
+console.log("-- 4 --")
+function letterCount(countries) {
+  const letterCounts = {}
+  for (const country of countries) {
+    const firstL = country.charAt(0).toUpperCase()
+    if (firstL >= "A" && firstL <= "Z") {
+      if (letterCounts[firstL]) {
+        letterCounts[firstL]++
+      } else {
+        letterCounts[firstL] = 1
+      }
+    }
+  }
+
+  const result = []
+  for (const letter in letterCounts) {
+    result.push({letter, count: letterCounts[letter]})
+  }
+  return result
+}
+
+console.log(letterCount(countriesArray))
+
+console.log("-- 5 --")
+function getFirstTenCountries() {
+  const firstTen = countriesArray.slice(0,10)
+  return firstTen
+
+}
+
+console.log(getFirstTenCountries())
+
+console.log("-- 6 --")
+function getLastTenCountries() {
+  const lastTen = countriesArray.slice(-10)
+  return lastTen
+
+}
+
+console.log(getLastTenCountries())
+
+console.log("-- Part 3 -- ")
+console.log("-- 1 --")
+const sortedName = countriesInfo.sort((a,b) => { 
+  const nameA = a.name.toUpperCase()
+  const nameB = b.name.toUpperCase()
+  if (nameA > nameB) {
+    return 1
+  } else if (nameA < nameB) {
+    return -1
+  } else {
+    return 0
+  }
+})
+console.log(sortedName) 
+
+const sortedCapital = countriesInfo.sort((a,b) => { 
+  const nameA = a.capital
+  const nameB = b.capital
+  if (nameA > nameB) {
+    return 1
+  } else if (nameA < nameB) {
+    return -1
+  } else {
+    return 0
+  }
+})
+console.log(sortedCapital) 
+
+const sortedPop = countriesInfo.sort((a,b) => { 
+  const nameA = a.population
+  const nameB = b.population
+  if (nameA > nameB) {
+    return 1
+  } else if (nameA < nameB) {
+    return -1
+  } else {
+    return 0
+  }
+})
+console.log(sortedPop) 
+
+console.log("-- 2 --")
+function mostSpoken(countries,count) {
+  const languageCount = {}
+  
+  for (const country of countries) {
+    for (const language of country.languages) {
+      if (languageCount[language]) {
+        languageCount[language]++
+      } else {
+        languageCount[language] = 1
+      }
+    }
+  }
+
+  const result = []
+  for (const language in languageCount) {
+    result.push({Language: language, count: languageCount[language]})
+  }
+  return result.slice(0,count).sort((a,b) => {
+    const nameA = a.count
+    const nameB = b.count
+    if (nameA < nameB) {
+      return 1
+    } else if (nameA > nameB) {
+      return -1
+    } else {
+      return 0
+    }
+  })
+}
+
+console.log(mostSpoken(countriesInfo,10))
+
+console.log("-- 3 --")
+function mostPopulatedCountries(countries,count) {
+  const population = []
+  for (const country of countries) {
+    population.push({Country: country.name, population: country.population})
+  }
+
+  population.sort((a,b) => {
+    const nameA = a.population
+    const nameB = b.population
+    if (nameA < nameB) {
+      return 1
+    } else if (nameA > nameB) {
+      return -1
+    } else {
+      return 0
+    }
+  })
+  return population.slice(0,count)
+}
+console.log(mostPopulatedCountries(countriesInfo,10))
+console.log(mostPopulatedCountries(countriesInfo,3))
+
+console.log("-- 4 --")
+const statistics = {
+  ages: [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24,
+     32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26],
+
+  count: function() {
+    return this.ages.length
+  },
+
+  sum: function() {
+    let sum = 0
+    for (let i =0; i < this.ages.length; i ++){
+      sum += this.ages[i]
+    }
+    return sum
+  },
+
+  min: function() {
+    let min = this.ages[0]
+    for (let i =0; i < this.ages.length; i ++) {
+      if (min > this.ages[i]) {
+        min = this.ages[i]
+      }
+    }
+    return min
+  },
+
+  max: function() {
+    let max = this.ages[0]
+    for (let i =0; i < this.ages.length; i ++) {
+      if (max < this.ages[i]) {
+        max = this.ages[i]
+      }
+    }
+    return max
+  },
+
+  range: function() {
+    return this.max() - this.min()
+  },
+
+  mean: function() {
+    return Math.round(this.sum() / this.count())
+  },
+
+  median: function() {
+    let sorted = this.ages.sort((a,b) => {
+      const nameA = a
+      const nameB = b
+      if (nameA > nameB) {
+        return 1
+      } else if (nameA < nameB) {
+        return -1
+      } else {
+        return 0
+      }
+    })
+    return sorted[Math.round(sorted.length / 2) - 1]
+  },
+
+  mode: function() {
+    let mode = {}
+        for (const value of this.ages) {
+          if (mode[value]) {
+            mode[value]++
+          } else {
+            mode[value] = 1
+          }
+      }
+      const result = []
+      for (const value in mode) {
+        result.push({Mode: value, count: mode[value]})
+      }
+      return result.sort((a,b) => {
+        const nameA = a.count
+        const nameB = b.count
+        if (nameA < nameB) {
+          return 1
+        } else if (nameA > nameB) {
+          return -1
+        } else {
+          return 0
+        }
+      }).slice(0,1)
+  },
+
+  var: function() {
+    let mean = this.mean()
+    const squaredDifference = this.ages.map(value => (value - mean) ** 2)
+    const variance = squaredDifference.reduce((acc, value) => acc + value, 0) / this.ages.length
+    return variance
+  },
+
+  std: function() {
+    let mean = this.mean()
+    const squaredDifference = this.ages.map(value => (value - mean) ** 2)
+    const sumofValues = squaredDifference.reduce((acc,value) => acc + value) / this.ages.length
+    const std = Math.sqrt(sumofValues)
+    return std
+  }
+}
+
+console.log(`Count: ${statistics.count()}`)
+console.log(`Sum: ${statistics.sum()}`)
+console.log('Min: ', statistics.min())
+console.log('Max: ', statistics.max())
+console.log('Range: ', statistics.range())
+console.log('Mean: ', statistics.mean())
+console.log('Median: ',statistics.median())
+console.log('Mode: ', statistics.mode())
+console.log('Variance: ',statistics.var())
+console.log('Standard Deviation: ', statistics.std())
